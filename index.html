@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ROBOT 73 BANCO CUANTICO 6G</title><style>body{margin:0;background:#07071a;color:#fff;font-family:sans-serif;text-align:center}.top{position:sticky;top:0;background:#111;padding:8px;display:flex;gap:5px;z-index:99}input{flex:1;padding:14px;border-radius:25px;border:none;background:#222;color:#fff}.bot{width:90px;height:90px;margin:12px auto;background:radial-gradient(circle,gold,orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:50px;box-shadow:0 0 25px gold;cursor:pointer}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px;max-width:400px;margin:auto}.social{padding:18px;border-radius:20px;border:none;font-weight:900;font-size:15px;color:#fff}iframe{width:96%;height:300px;border:none;border-radius:15px;background:#fff;margin:auto;display:block}#voz{padding:12px 20px;border-radius:25px;background:red;color:#fff;border:none;font-weight:900}</style></head><body>
+<div class="top"><input id="url" placeholder="Escribe o habla..."><button onclick="ir()" style="background:#8b5cf6;color:#fff;border:none;border-radius:20px;padding:0 18px">➡️</button></div>
+<div class="bot" onclick="hablar('Hola soy Robot 73 Banco Cuantico 6G Ready')">🤖</div>
+<h2 style="color:gold;margin:0">ROBOT 73 - 6G QUANTUM READY</h2>
+<div id="red" style="font-size:10px;color:gold">📡 Detectando red...</div>
+<button id="voz" onclick="escuchar()">🎤 HABLAME</button>
+<p id="texto" style="color:#00ff88;font-size:11px">Di: youtube / facebook / sos / tiktok</p>
+
+<div style="background:#111;border:1px solid gold;border-radius:15px;margin:10px;padding:10px">
+<div style="display:flex;justify-content:space-between;font-size:12px"><span>🔋 <span id="megas">100 MB</span></span><span>🏦 <b id="saldo">0 TOKEN</b></span></div>
+<div style="display:flex;gap:5px;margin-top:8px">
+<button onclick="ganarMerito('ver anuncio',10)" style="flex:1;background:#333;color:#fff;border:none;border-radius:10px;padding:8px;font-size:11px">📺 +10</button>
+<button onclick="ganarMerito('compartir',20)" style="flex:1;background:#333;color:#fff;border:none;border-radius:10px;padding:8px;font-size:11px">🔗 +20</button>
+<button onclick="ganarMerito('invitar',50)" style="flex:1;background:gold;color:#000;border:none;border-radius:10px;padding:8px;font-size:11px;font-weight:800">👥 +50</button>
+</div>
+<button onclick="canjear()" style="width:100%;margin-top:8px;background:#00ff88;color:#000;font-weight:900;padding:10px;border:none;border-radius:25px">💳 CANJEAR 100 TOKEN = 1GB REAL</button>
+</div>
+
+<div class="grid">
+<button class="social" style="background:#25D366" onclick="abrir('https://wa.me/')">💬<br>WhatsApp</button>
+<button class="social" style="background:#1877F2" onclick="abrir('https://facebook.com')">📘<br>Facebook</button>
+<button class="social" style="background:#FF0000" onclick="abrir('https://youtube.com')">▶️<br>YouTube</button>
+<button class="social" style="background:#000" onclick="abrir('https://tiktok.com')">🎵<br>TikTok</button>
+<button class="social" style="background:#E1306C" onclick="abrir('https://instagram.com')">📸<br>Instagram</button>
+<button class="social" style="background:gold;color:#000" onclick="sos()">🌍<br>SOS 73</button>
+</div>
+<iframe id="visor" src="https://www.google.com/search?igu=1"></iframe>
+
+<div id="lab" style="background:#000;border:2px dashed gold;border-radius:15px;margin:15px;padding:10px;text-align:left">
+<h3 style="color:gold;margin:0;text-align:center">🧪 LABORATORIO CUÁNTICO 73</h3>
+<p style="font-size:10px;margin:5px 0;text-align:center">Estado: <span id="estadoLab" style="color:#00ff88">Iniciando...</span> | PQC Activo ✅</p>
+<div id="inventos" style="font-size:11px;background:#111;padding:8px;border-radius:10px;min-height:40px"></div>
+</div>
+
+<script>
+let megas=parseInt(localStorage.getItem('megas73')||'100'); let tokens=parseInt(localStorage.getItem('tokens73')||'0');
+function actualizar(){document.getElementById('megas').innerText=megas+' MB'; document.getElementById('saldo').innerText=tokens+' TOKEN'; localStorage.setItem('megas73',megas); localStorage.setItem('tokens73',tokens); if(navigator.connection){document.getElementById('red').innerText='📡 Red: '+navigator.connection.effectiveType.toUpperCase()+' | '+Math.round(navigator.connection.rtt)+'ms | 6G READY PQC ✅'}}
+function abrir(u){if(megas<=0)return alert('Sin MB, gana méritos'); document.getElementById('visor').src=u; megas-=2; actualizar(); hablar('Abriendo')}
+function ir(){let u=document.getElementById('url').value.trim(); if(!u)return; if(!u.startsWith('http'))u='https://'+u; abrir(u)}
+function claveCuantica(){return 'QKD-73-6G-'+crypto.randomUUID().split('-')[0].toUpperCase()+'-Q'}
+function sos(){let k=claveCuantica(); hablar('Clave cuántica '+k); alert('✅ CLAVE CUANTICA 6G:\n'+k); ganarMerito('SOS',5)}
+function ganarMerito(t,p){megas+=p; tokens+=p; actualizar(); alert('✅ +'+p+' MB y +'+p+' TOKEN por '+t)}
+function canjear(){if(tokens<100)return alert('Te faltan '+(100-tokens)+' TOKEN'); let num=prompt('Número Claro/Movistar/Tigo:'); if(!num)return; tokens-=100; actualizar(); alert('✅ 1GB real solicitado al '+num+'\nConecta tu cuenta Reloadly para que sea automático');}
+function hablar(t){let s=new SpeechSynthesisUtterance(t); s.lang='es-CO'; speechSynthesis.speak(s)}
+function escuchar(){let R=new(window.SpeechRecognition||window.webkitSpeechRecognition)(); R.lang='es-CO'; R.start(); document.getElementById('voz').innerText='🎧 ESCUCHANDO'; R.onresult=(e)=>{let txt=e.results[0][0].transcript.toLowerCase(); document.getElementById('texto').innerText='Dijiste: '+txt; if(txt.includes('youtube'))abrir('https://youtube.com'); else if(txt.includes('facebook'))abrir('https://facebook.com'); else if(txt.includes('whatsapp'))abrir('https://wa.me/'); else if(txt.includes('tiktok'))abrir('https://tiktok.com'); else if(txt.includes('instagram'))abrir('https://instagram.com'); else if(txt.includes('sos'))sos(); else abrir('https://www.google.com/search?q='+txt)}; R.onend=()=>document.getElementById('voz').innerText='🎤 HABLAME'}
+
+const inventosPosibles=["🔮 Traductor cuántico","🛰️ Modo satélite","👁️ Visión nocturna","🧠 IA predictiva","⚡ Turbo 6G x10","🔒 Bóveda cuántica","💸 Generador cupones","📡 Radar WiFi gratis"];
+let lab=JSON.parse(localStorage.getItem('lab73')||'{"dia":0,"creados":[]}');
+function evolucionarLab(){lab.dia++; if(lab.creados.length<inventosPosibles.length){let n=invetosPosibles[lab.creados.length]; lab.creados.push({nombre:n, fecha:new Date().toLocaleDateString(), clave:'Q-LAB-'+Math.random().toString(36).substr(2,4).toUpperCase()}); hablar('Laboratorio inventó '+n)} localStorage.setItem('lab73',JSON.stringify(lab)); mostrarLab()}
+function mostrarLab(){let h=''; lab.creados.forEach(i=>{h+=`✅ ${i.nombre}<br><small style="color:gold">${i.fecha} | ${i.clave}</small><hr style="border:0;border-top:1px solid #222">`}); if(!h)h='⏳ Experimentando primera invención... vuelve en 2 min'; document.getElementById('inventos').innerHTML=h; document.getElementById('estadoLab').innerText='Gen '+lab.creados.length+' Día '+lab.dia}
+const invetosPosibles=inventosPosibles; setInterval(evolucionarLab,120000); window.onload=()=>{actualizar(); mostrarLab();}
+</script></body></html>
